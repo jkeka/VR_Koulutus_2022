@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    int levelInt;
+    public int levelInt;
     public static float totalTime;
 
     public InfoPanel infoPanel;
+
+    public List<GameObject> interactableList;
 
     void Awake()
     {

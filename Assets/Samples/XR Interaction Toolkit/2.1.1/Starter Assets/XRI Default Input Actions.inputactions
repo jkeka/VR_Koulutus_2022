@@ -1404,6 +1404,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Press trigger",
+                    "type": "Button",
+                    "id": "9b3c2a59-b486-4d7a-babb-fb43a888a452",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1437,6 +1446,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Toggle teleport",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21b6218f-87a1-41d4-87b9-f12de723b8f6",
+                    "path": "<OculusTouchController>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press trigger",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
