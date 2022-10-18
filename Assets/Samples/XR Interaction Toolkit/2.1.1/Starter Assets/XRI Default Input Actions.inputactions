@@ -878,7 +878,7 @@
                     "name": "",
                     "id": "de466e6e-12bf-46a1-b0fd-ffbc343f3399",
                     "path": "<XRController>{RightHand}/gripPressed",
-                    "interactions": "",
+                    "interactions": "Sector",
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Teleport Mode Cancel",
@@ -1395,13 +1395,22 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle teleport",
+                    "type": "Value",
+                    "id": "3b8326c7-dbe6-4e65-afbd-bfa1c30caa52",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "1b9648d3-f1e7-4e7a-9aeb-ee6bbcf4b386",
-                    "path": "<OculusTouchController>{RightHand}/secondaryButton",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1412,11 +1421,22 @@
                 {
                     "name": "",
                     "id": "0ebed17a-cc65-4cff-aa57-a1e055864a18",
-                    "path": "<OculusTouchController>{RightHand}/primaryButton",
+                    "path": "<XRController>{LeftHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Toggle info",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3db43b1-b88a-4d41-84fd-62484b9e15ac",
+                    "path": "<OculusTouchController>/thumbstick",
+                    "interactions": "Sector(directions=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle teleport",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

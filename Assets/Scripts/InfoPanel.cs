@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class InfoPanel : MonoBehaviour
 {
 
     public GameObject menuPanel;
+    [SerializeField]
+    private TextMeshPro taskText;    
+    private TextMeshPro infoText;
 
     public InputActionReference toggleReference = null;
 
@@ -30,4 +34,22 @@ public class InfoPanel : MonoBehaviour
         gameObject.SetActive(isActive);
         menuPanel.SetActive(false);
     }
+
+    public void LevelOne()
+    {
+        taskText.text = "Task: Changing bearing of an robot arm";
+    }
+
+    public void LevelTwo()
+    {
+        taskText.text = "Push the emergency switch of the robot";
+        infoText.text = "As safety measure, power must be shut down before approaching robot";
+    }
+
+    public void LevelThree()
+    {
+        taskText.text = "Remove the bolts of bearing cover plate";
+        infoText.text = "Wrench can be found from the tool box";
+    }
+
 }
