@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class EmergencyButton : MonoBehaviour
+public class DoorButton : MonoBehaviour
 {
     public Material M_Int_Hover; 
-    public Material M_Red; 
+    public Material M_Blue; 
+
+
 
     public GameManager gameManager;
 
@@ -47,7 +49,7 @@ public class EmergencyButton : MonoBehaviour
         if (other.tag == "GameController")
         {
 
-            gameObject.GetComponent<Renderer>().material = M_Red;
+            gameObject.GetComponent<Renderer>().material = M_Blue;
             isOnPerimeter = false;
         }
         
@@ -69,10 +71,8 @@ public class EmergencyButton : MonoBehaviour
         Vector3 downPos = new Vector3(transform.localPosition.x, 0.6971f, 2.7406f);
         gameObject.transform.localPosition = downPos;
         gameObject.GetComponent<Outline>().enabled = false;
-        gameObject.GetComponent<Renderer>().material = M_Red;
-        gameObject.GetComponent<BoxCollider>().enabled = false;
-        isOnPerimeter = true;
-        //Destroy (this);
+        gameObject.GetComponent<Renderer>().material = M_Blue;
+        Destroy (this);
         playAudioGranted.PlayGranted();
         gameManager.stageInt = 2;
 

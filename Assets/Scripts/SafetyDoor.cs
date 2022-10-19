@@ -5,12 +5,21 @@ using UnityEngine.InputSystem;
 
 public class SafetyDoor : MonoBehaviour
 {
+    public GameManager gameManager;
+
+    public GameObject doorFrame;
+
     public Material M_Int_Hover; 
-    public Material M_RobotOrange; 
+    public Material M_RobotOrange;
+
+    public PlayAudioGranted playAudioGranted;
+
+    private Vector3 direction = new Vector3(0f, -180f, 0f);
 
     public InputActionReference toggleReference = null;
 
     bool isOnPerimeter = false;
+    bool doorOpened = false;
 
     void Awake()
     {
@@ -23,38 +32,46 @@ public class SafetyDoor : MonoBehaviour
 
     }
 
-
-
-    private void OnTriggerEnter(Collider other) //Toiminnallisuus, kun pelaaja menee sis��n 
+    private void Update()
     {
-        /*
-        if (other.tag == "Kiintoavain" && gameManager.stageInt == 4)
+        if (gameManager.stageInt == 2)
         {
-            gameObject.GetComponent<Renderer>().material = green;
-            isOnPerimeter = true;
-
-
+            doorFrame.GetComponent<Outline>().enabled = true;
         }
-        */
+
+        if (doorOpened)
+        {
+            Quaternion targetRotation = Quaternion.Euler(direction);
+            gameObject.transform.rotation = Quaternion.Lerp(this.transform.rotation, targetRotation, Time.deltaTime * 1.5f);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if (other.tag == "GameController" && gameManager.stageInt == 2)
+        {
             gameObject.GetComponent<Renderer>().material = M_Int_Hover;
             isOnPerimeter = true;
+        }
+
+
 
     }
-        private void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        /*
-        if (other.tag == "Kiintoavain")
+        
+        if (other.tag == "GameController")
         {
-            gameObject.GetComponent<Renderer>().material = basic;
+            gameObject.GetComponent<Renderer>().material = M_RobotOrange;
             isOnPerimeter = false;
 
         }
-        */
-            gameObject.GetComponent<Renderer>().material = M_RobotOrange;
-            isOnPerimeter = false;
+        
+
     }
 
-        private void Toggle(InputAction.CallbackContext context)
+    private void Toggle(InputAction.CallbackContext context)
     {
         if (isOnPerimeter == true)
         {
@@ -66,11 +83,13 @@ public class SafetyDoor : MonoBehaviour
 
         public void OpenDoor()
     {
-        Vector3 openPos = new Vector3(transform.localRotation.x, -180, transform.localRotation.z);
-        gameObject.transform.localPosition = openPos;
-        gameObject.GetComponent<Outline>().enabled = false;
+        //Vector3 openPos = new Vector3(transform.localRotation.x, -180, transform.localRotation.z);
+        //gameObject.transform.localPosition = openPos;
+        doorOpened = true;
+        doorFrame.GetComponent<Outline>().enabled = false;
+        //doorFrame.GetComponent<BoxCollider>().enabled = false;
         gameObject.GetComponent<Renderer>().material = M_RobotOrange;
-        Destroy (this);
-
+        playAudioGranted.PlayGranted();
+        //Destroy (this);
     }
 }

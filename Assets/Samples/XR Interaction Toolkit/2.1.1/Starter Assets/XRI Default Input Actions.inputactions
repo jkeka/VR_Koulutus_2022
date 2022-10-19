@@ -1406,7 +1406,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Press trigger",
+                    "name": "Press grab",
                     "type": "Button",
                     "id": "9b3c2a59-b486-4d7a-babb-fb43a888a452",
                     "expectedControlType": "Button",
@@ -1452,11 +1452,11 @@
                 {
                     "name": "",
                     "id": "21b6218f-87a1-41d4-87b9-f12de723b8f6",
-                    "path": "<OculusTouchController>/triggerPressed",
+                    "path": "<OculusTouchController>/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Press trigger",
+                    "action": "Press grab",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

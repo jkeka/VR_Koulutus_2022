@@ -8,9 +8,8 @@ public class InfoPanel : MonoBehaviour
 {
 
     public GameObject menuPanel;
-    [SerializeField]
-    private TextMeshPro taskText;    
-    private TextMeshPro infoText;
+    public TMPro.TMP_Text taskText;    
+    public TMPro.TMP_Text infoText;
 
     public InputActionReference toggleReference = null;
 

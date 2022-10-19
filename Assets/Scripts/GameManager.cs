@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    public int levelInt;
+    public int stageInt;
     public static float totalTime;
 
     public InfoPanel infoPanel;
@@ -14,18 +14,22 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        levelInt = 1;
-        infoPanel.LevelOne();
+        stageInt = 1;
     }
 
     void Update()
     {
-        if(levelInt == 2)
+        if (stageInt == 1)
+        {
+            infoPanel.LevelOne();
+        }
+
+        if (stageInt == 2)
         {
             infoPanel.LevelTwo();
         }
 
-        if(levelInt == 3)
+        if(stageInt == 3)
         {
             infoPanel.LevelThree();
         }

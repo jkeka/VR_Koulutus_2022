@@ -7,7 +7,6 @@ public class MenuPanel : MonoBehaviour
 {
     public GameObject infoPanel;
 
-
     public InputActionReference toggleReference = null;
 
     private void Awake()
