@@ -6,15 +6,19 @@ public class GameManager : MonoBehaviour
 {
 
     public int stageInt;
+    public int openedBolts;
+
     public static float totalTime;
+
 
     public InfoPanel infoPanel;
 
-    public List<GameObject> interactableList;
+    public List<GameObject> boltsList;
 
     void Awake()
     {
         stageInt = 1;
+        openedBolts = 0;
     }
 
     void Update()
@@ -32,6 +36,20 @@ public class GameManager : MonoBehaviour
         if(stageInt == 3)
         {
             infoPanel.LevelThree();
+            for (int i = 0; i < boltsList.Count; i++)
+            {
+                boltsList[i].GetComponent<Outline>().enabled = true;
+            }
+
+            if (openedBolts >= boltsList.Count)
+            {
+                stageInt = 4;
+            }
+        }
+
+        if (stageInt == 4)
+        {
+            //infoPanel.LevelFour();
         }
 
     }

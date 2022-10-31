@@ -11,6 +11,7 @@ public class InfoPanel : MonoBehaviour
     public TMPro.TMP_Text taskText;    
     public TMPro.TMP_Text infoText;
 
+
     public InputActionReference toggleReference = null;
 
     private void Awake()
@@ -18,6 +19,7 @@ public class InfoPanel : MonoBehaviour
         gameObject.SetActive(false);
 
         toggleReference.action.started += Toggle;
+
     }
 
     private void OnDestroy()
