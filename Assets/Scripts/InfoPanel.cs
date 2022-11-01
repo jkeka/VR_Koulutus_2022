@@ -50,7 +50,7 @@ public class InfoPanel : MonoBehaviour
     public void LevelThree()
     {
         taskText.text = "Remove the bolts of bearing cover plate";
-        infoText.text = "Wrench can be found from the tool box";
+        infoText.text = "Wrench can be found from the table next to robot";
     }
 
 }

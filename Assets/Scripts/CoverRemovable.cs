@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CoverRemovable : MonoBehaviour
 {
+    /*
     public Material M_Int_Hover;
     public Material M_GreyMetal;
 
@@ -78,4 +79,5 @@ public class CoverRemovable : MonoBehaviour
         gameManager.stageInt = 5;
 
     }
+    */
 }

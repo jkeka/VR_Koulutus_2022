@@ -23,9 +23,9 @@ TagManager:
   - Door_Left
   - SafetyDoor
   - SafetyFence
-  - 
-  - 
-  - 
+  - SafetyDoorFrame
+  - CellFloor
+  - HallFloor
   - 
   - 
   - 

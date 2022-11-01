@@ -7,14 +7,14 @@ public class SafetyDoor : MonoBehaviour
 {
     public GameManager gameManager;
 
-    public GameObject doorFrame;
+    //public GameObject doorFrame;
 
     public Material M_Int_Hover; 
     public Material M_RobotOrange;
 
     public PlayAudioGranted playAudioGranted;
 
-    private Vector3 direction = new Vector3(0f, -180f, 0f);
+    private Vector3 direction = new Vector3(0f, -90f, 0f);
 
     public InputActionReference toggleReference = null;
 
@@ -36,14 +36,22 @@ public class SafetyDoor : MonoBehaviour
     {
         if (gameManager.stageInt == 2)
         {
-            doorFrame.GetComponent<Outline>().enabled = true;
+            gameObject.GetComponent<Outline>().enabled = true;
         }
-
+        
         if (doorOpened)
         {
             Quaternion targetRotation = Quaternion.Euler(direction);
             gameObject.transform.rotation = Quaternion.Lerp(this.transform.rotation, targetRotation, Time.deltaTime * 1.5f);
+            gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            foreach (Collider c in GetComponents<Collider>())
+            {
+                c.enabled = false;
+            }
+
+
         }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -53,6 +61,7 @@ public class SafetyDoor : MonoBehaviour
         {
             gameObject.GetComponent<Renderer>().material = M_Int_Hover;
             isOnPerimeter = true;
+            Debug.Log("Safety door entered");
         }
 
 
@@ -86,10 +95,14 @@ public class SafetyDoor : MonoBehaviour
         //Vector3 openPos = new Vector3(transform.localRotation.x, -180, transform.localRotation.z);
         //gameObject.transform.localPosition = openPos;
         doorOpened = true;
-        doorFrame.GetComponent<Outline>().enabled = false;
-        //doorFrame.GetComponent<BoxCollider>().enabled = false;
+        isOnPerimeter = true;
+        gameObject.GetComponent<Outline>().enabled = false;
+        //gameObject.GetComponent<BoxCollider>().enabled = false;
         gameObject.GetComponent<Renderer>().material = M_RobotOrange;
         playAudioGranted.PlayGranted();
-        //Destroy (this);
+        //gameObject.GetComponent<AudioSource>().enabled = false;
+        gameManager.stageInt = 3;
+        Debug.Log("Safety door opened");
+        //Destroy(this);
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CoverBolts : MonoBehaviour
 {
+    /*
     public Material M_Int_Hover;
     public Material M_Floor;
 
@@ -75,4 +76,5 @@ public class CoverBolts : MonoBehaviour
         //gameManager.stageInt = 2;
 
     }
+    */
 }

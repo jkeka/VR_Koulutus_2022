@@ -72,9 +72,10 @@ public class EmergencyButton : MonoBehaviour
         gameObject.GetComponent<Renderer>().material = M_Red;
         gameObject.GetComponent<BoxCollider>().enabled = false;
         isOnPerimeter = true;
-        //Destroy (this);
         playAudioGranted.PlayGranted();
         gameManager.stageInt = 2;
+        Debug.Log("Button pushed");
+        Destroy(this);
 
     }
 }

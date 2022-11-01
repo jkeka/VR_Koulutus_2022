@@ -36,9 +36,16 @@ public class GameManager : MonoBehaviour
         if(stageInt == 3)
         {
             infoPanel.LevelThree();
+            /*
             for (int i = 0; i < boltsList.Count; i++)
             {
                 boltsList[i].GetComponent<Outline>().enabled = true;
+            }
+            */
+
+            foreach (GameObject bolt in boltsList)
+            {
+                bolt.GetComponent<Outline>().enabled = true;
             }
 
             if (openedBolts >= boltsList.Count)
