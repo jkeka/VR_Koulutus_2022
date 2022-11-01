@@ -59,12 +59,12 @@ public class CoverRemovable : MonoBehaviour
         if (isOnPerimeter == true)
         {
             bool isActive = !gameObject.activeSelf;
-            ButtonPush();
+            RemoveCover();
         }
 
     }
 
-    public void ButtonPush()
+    public void RemoveCover()
     {
         //Vector3 downPos = new Vector3(transform.localPosition.x, 0.6971f, 2.7406f);
         //gameObject.transform.localPosition = downPos;
@@ -73,6 +73,7 @@ public class CoverRemovable : MonoBehaviour
         //gameObject.GetComponent<BoxCollider>().enabled = false;
         isOnPerimeter = true;
         //Destroy (this);
+        gameObject.GetComponent<Rigidbody>().useGravity = true;
         playAudioGranted.PlayGranted();
         gameManager.stageInt = 5;
 
