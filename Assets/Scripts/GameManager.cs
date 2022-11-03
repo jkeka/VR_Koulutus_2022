@@ -5,6 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
+    private float timer;
+    public static float endTime;
+
+
     public int stageInt;
     public int openedBolts;
 
@@ -17,12 +21,18 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
+        timer = 0;
+        endTime = 0;
+
         stageInt = 1;
         openedBolts = 0;
     }
 
     void Update()
     {
+
+        timer = timer + Time.deltaTime;
+
         if (stageInt == 1)
         {
             infoPanel.LevelOne();

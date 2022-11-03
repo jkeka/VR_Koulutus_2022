@@ -5653,6 +5653,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2316039950512309970, guid: ab64c26b38147a2459c9465ab3609243, type: 3}
+      propertyPath: teleportToggleButton
+      value: 
+      objectReference: {fileID: 8840153414436159075, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab64c26b38147a2459c9465ab3609243, type: 3}
 --- !u!33 &2364944401722030798

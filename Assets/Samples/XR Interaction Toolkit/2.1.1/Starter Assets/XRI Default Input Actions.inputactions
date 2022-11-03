@@ -1398,9 +1398,9 @@
                 },
                 {
                     "name": "Toggle teleport",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "3b8326c7-dbe6-4e65-afbd-bfa1c30caa52",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -1441,8 +1441,8 @@
                 {
                     "name": "",
                     "id": "a3db43b1-b88a-4d41-84fd-62484b9e15ac",
-                    "path": "<OculusTouchController>/thumbstick",
-                    "interactions": "Sector(directions=1)",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Toggle teleport",
