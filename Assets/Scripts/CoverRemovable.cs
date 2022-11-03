@@ -5,16 +5,26 @@ using UnityEngine.InputSystem;
 
 public class CoverRemovable : MonoBehaviour
 {
-    /*
-    public Material M_Int_Hover;
-    public Material M_GreyMetal;
+    
+    //public Material M_Int_Hover;
+    //public Material M_GreyMetal;
 
     public GameManager gameManager;
 
     public PlayAudioGranted playAudioGranted;
 
-    public InputActionReference toggleReference = null;
 
+    private void Update()
+    {
+        if (gameManager.stageInt == 4)
+        {
+            gameObject.GetComponent<Outline>().enabled = true;
+        }
+    }
+
+    /*
+    public InputActionReference toggleReference = null;
+    
     bool isOnPerimeter = false;
 
     void Awake()
@@ -33,7 +43,7 @@ public class CoverRemovable : MonoBehaviour
     private void OnTriggerEnter(Collider other) //Toiminnallisuus, kun pelaaja menee sis��n 
     {
 
-        if (other.tag == "GameController" && gameManager.stageInt == 1)
+        if (other.tag == "GameController" && gameManager.stageInt == 4)
         {
             gameObject.GetComponent<Renderer>().material = M_Int_Hover;
             isOnPerimeter = true;
@@ -67,11 +77,9 @@ public class CoverRemovable : MonoBehaviour
 
     public void RemoveCover()
     {
-        //Vector3 downPos = new Vector3(transform.localPosition.x, 0.6971f, 2.7406f);
-        //gameObject.transform.localPosition = downPos;
+
         gameObject.GetComponent<Outline>().enabled = false;
         gameObject.GetComponent<Renderer>().material = M_GreyMetal;
-        //gameObject.GetComponent<BoxCollider>().enabled = false;
         isOnPerimeter = true;
         //Destroy (this);
         gameObject.GetComponent<Rigidbody>().useGravity = true;
@@ -80,4 +88,18 @@ public class CoverRemovable : MonoBehaviour
 
     }
     */
+
+    public void CoverGrabbed()
+    {
+        gameObject.GetComponent<Outline>().enabled = false;
+
+    }
+
+    public void CoverAbandoned()
+    {
+        gameManager.stageInt = 5;
+        playAudioGranted.PlayGranted();
+
+    }
+
 }

@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public InfoPanel infoPanel;
 
     public List<GameObject> boltsList;
+    public GameObject wrench;
+    public GameObject coverRemovable;
 
     void Awake()
     {
@@ -58,6 +60,8 @@ public class GameManager : MonoBehaviour
                 bolt.GetComponent<Outline>().enabled = true;
             }
 
+            wrench.GetComponent<Outline>().enabled = true;
+
             if (openedBolts >= boltsList.Count)
             {
                 stageInt = 4;
@@ -66,6 +70,8 @@ public class GameManager : MonoBehaviour
 
         if (stageInt == 4)
         {
+            wrench.GetComponent<Outline>().enabled = false;
+            coverRemovable.GetComponent<BoxCollider>().enabled = true;
             //infoPanel.LevelFour();
         }
 
