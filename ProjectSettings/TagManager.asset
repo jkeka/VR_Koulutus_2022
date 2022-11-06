@@ -9,6 +9,7 @@ TagManager:
   - Wrench
   - Bolt
   - CoverRemovable
+  - DoorStopper
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - SafetyDoorFrame
   - CellFloor
   - HallFloor
-  - 
+  - GameController
   - 
   - 
   - 

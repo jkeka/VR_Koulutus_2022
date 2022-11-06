@@ -59,24 +59,23 @@ public class CoverBolts : MonoBehaviour
         {
             bool isActive = !gameObject.activeSelf;
             OpenBolt();
+            Debug.Log("Bolt clicked with wrench");
         }
 
     }
 
     public void OpenBolt()
     {
-        //Vector3 downPos = new Vector3(transform.localPosition.x, 0.025f, transform.localPosition.z);
-        //gameObject.transform.localPosition = downPos;
-        //gameObject.GetComponent<Outline>().enabled = false;
-        //gameObject.GetComponent<Renderer>().material = M_Floor;
-        //gameObject.GetComponent<BoxCollider>().enabled = false;
-        //isOnPerimeter = true;
+
         playAudioGranted.PlayGranted();
         gameManager.openedBolts++;
+        Debug.Log("Bolt opened");
+        Destroy(this);
         gameObject.SetActive(false);
+
 
         //gameManager.stageInt = 5;
 
     }
-    
+
 }

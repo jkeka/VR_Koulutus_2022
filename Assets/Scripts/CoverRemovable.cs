@@ -6,19 +6,28 @@ using UnityEngine.InputSystem;
 public class CoverRemovable : MonoBehaviour
 {
     
-    //public Material M_Int_Hover;
-    //public Material M_GreyMetal;
+    public Material M_Int_Hover;
+    public Material M_GreyMetal;
 
     public GameManager gameManager;
 
     public PlayAudioGranted playAudioGranted;
 
+    public Rigidbody rb;
+
+
+    private void Awake()
+    {
+        Physics.IgnoreLayerCollision(7, 16, true);
+    }
 
     private void Update()
     {
         if (gameManager.stageInt == 4)
         {
             gameObject.GetComponent<Outline>().enabled = true;
+            Physics.IgnoreLayerCollision(7, 16, false);
+
         }
     }
 
@@ -38,7 +47,7 @@ public class CoverRemovable : MonoBehaviour
 
     }
 
-
+    */
 
     private void OnTriggerEnter(Collider other) //Toiminnallisuus, kun pelaaja menee sis��n 
     {
@@ -46,7 +55,7 @@ public class CoverRemovable : MonoBehaviour
         if (other.tag == "GameController" && gameManager.stageInt == 4)
         {
             gameObject.GetComponent<Renderer>().material = M_Int_Hover;
-            isOnPerimeter = true;
+            //isOnPerimeter = true;
 
 
         }
@@ -59,12 +68,13 @@ public class CoverRemovable : MonoBehaviour
         {
 
             gameObject.GetComponent<Renderer>().material = M_GreyMetal;
-            isOnPerimeter = false;
+            //isOnPerimeter = false;
         }
 
 
     }
 
+    /*
     private void Toggle(InputAction.CallbackContext context)
     {
         if (isOnPerimeter == true)
@@ -92,6 +102,7 @@ public class CoverRemovable : MonoBehaviour
     public void CoverGrabbed()
     {
         gameObject.GetComponent<Outline>().enabled = false;
+        rb.useGravity = true;
 
     }
 
@@ -99,6 +110,7 @@ public class CoverRemovable : MonoBehaviour
     {
         gameManager.stageInt = 5;
         playAudioGranted.PlayGranted();
+        Debug.Log("Stage int to 5, cover dropped");
 
     }
 

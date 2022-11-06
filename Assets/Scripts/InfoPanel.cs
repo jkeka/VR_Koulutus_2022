@@ -6,6 +6,10 @@ using TMPro;
 
 public class InfoPanel : MonoBehaviour
 {
+    
+    public GameManager gameManager;
+    public TMPro.TMP_Text stageIntText;
+
 
     public GameObject menuPanel;
     public TMPro.TMP_Text taskText;    
@@ -25,6 +29,11 @@ public class InfoPanel : MonoBehaviour
     private void OnDestroy()
     {
         toggleReference.action.started -= Toggle;
+    }
+
+    private void Update()
+    {
+        stageIntText.text = gameManager.stageInt.ToString();
     }
 
 

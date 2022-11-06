@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
 
@@ -71,7 +72,7 @@ public class GameManager : MonoBehaviour
         if (stageInt == 4)
         {
             wrench.GetComponent<Outline>().enabled = false;
-            coverRemovable.GetComponent<BoxCollider>().enabled = true;
+            //coverRemovable.GetComponent<BoxCollider>().enabled = true;
             //infoPanel.LevelFour();
         }
 
