@@ -111,6 +111,7 @@ public class CoverRemovable : MonoBehaviour
         gameManager.stageInt = 5;
         playAudioGranted.PlayGranted();
         Debug.Log("Stage int to 5, cover dropped");
+        rb.useGravity = true;
 
     }
 

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
     public List<GameObject> boltsList;
     public GameObject wrench;
     public GameObject coverRemovable;
+    public GameObject bearingExtractor;
+    public GameObject bearing;
 
     void Awake()
     {

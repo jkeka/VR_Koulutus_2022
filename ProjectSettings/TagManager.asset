@@ -10,6 +10,9 @@ TagManager:
   - Bolt
   - CoverRemovable
   - DoorStopper
+  - Bearing
+  - BearingExtractor
+  - BearingBroken
   layers:
   - Default
   - TransparentFX
