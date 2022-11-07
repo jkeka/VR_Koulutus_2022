@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject coverRemovable;
     public GameObject bearingExtractor;
     public GameObject bearingNew;
+    public GameObject bearingNewSocket;
     public GameObject bearingBroken;
 
     void Awake()
@@ -44,6 +45,9 @@ public class GameManager : MonoBehaviour
 
         menuControllerLeft.SetActive(false);
         menuControllerRight.SetActive(false);
+
+        bearingNewSocket.SetActive(false);
+
     }
 
     void Update()
@@ -122,6 +126,14 @@ public class GameManager : MonoBehaviour
             bearingExtractor.GetComponent<Outline>().enabled = true;
             bearingBroken.GetComponent<Outline>().enabled = true;
             //infoPanel.LevelFive();
+        }
+
+        if (stageInt == 6)
+        {
+            bearingExtractor.GetComponent<Outline>().enabled = false;
+            bearingNew.GetComponent<Outline>().enabled = true;
+            bearingNewSocket.SetActive(true);
+            //infoPanel.LevelSix();
         }
 
     }
