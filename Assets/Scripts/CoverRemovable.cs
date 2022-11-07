@@ -102,7 +102,8 @@ public class CoverRemovable : MonoBehaviour
     public void CoverGrabbed()
     {
         gameObject.GetComponent<Outline>().enabled = false;
-        rb.useGravity = true;
+        Debug.Log("Cover grapped");
+
 
     }
 
@@ -112,7 +113,9 @@ public class CoverRemovable : MonoBehaviour
         playAudioGranted.PlayGranted();
         Debug.Log("Stage int to 5, cover dropped");
         rb.useGravity = true;
-
+        gameObject.GetComponent<Outline>().enabled = false;
     }
+
+
 
 }

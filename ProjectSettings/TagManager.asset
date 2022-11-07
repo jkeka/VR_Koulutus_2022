@@ -31,9 +31,9 @@ TagManager:
   - CellFloor
   - HallFloor
   - GameController
-  - 
-  - 
-  - 
+  - Extractor
+  - Robot
+  - Bearing
   - 
   - 
   - 

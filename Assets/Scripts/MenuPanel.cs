@@ -25,15 +25,7 @@ public class MenuPanel : MonoBehaviour
 
     private void Update()
     {
-        if (isMenuActive == true)
-        {
-            Time.timeScale = 0;
-        }
 
-        else
-        {
-            Time.timeScale = 1;
-        }
     }
 
     private void OnDestroy()
@@ -48,7 +40,6 @@ public class MenuPanel : MonoBehaviour
         bool isActive = !gameObject.activeSelf;
         gameObject.SetActive(isActive);
         infoPanel.SetActive(false);
-        isMenuActive = true;
 
     }
 

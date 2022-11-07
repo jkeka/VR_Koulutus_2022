@@ -15,14 +15,24 @@ public class GameManager : MonoBehaviour
 
     public static float totalTime;
 
+    //public Canvas xrCanvas;
 
     public InfoPanel infoPanel;
+
+    public GameObject menuPanel;
+    public GameObject menuControllerLeft;
+    public GameObject menuControllerRight;
+
+    public GameObject directControllerLeft;
+    public GameObject directControllerRight;
+    public GameObject teleController;
 
     public List<GameObject> boltsList;
     public GameObject wrench;
     public GameObject coverRemovable;
     public GameObject bearingExtractor;
-    public GameObject bearing;
+    public GameObject bearingNew;
+    public GameObject bearingBroken;
 
     void Awake()
     {
@@ -31,10 +41,40 @@ public class GameManager : MonoBehaviour
 
         stageInt = 1;
         openedBolts = 0;
+
+        menuControllerLeft.SetActive(false);
+        menuControllerRight.SetActive(false);
     }
 
     void Update()
     {
+        //MenuPanel
+        //Debug.Log(Time.timeScale);
+
+        if (menuPanel.activeSelf)
+        {
+            Time.timeScale = 0;
+            menuControllerRight.SetActive(true);
+            menuControllerLeft.SetActive(true);
+            directControllerRight.SetActive(false);
+            directControllerLeft.SetActive(false);
+            teleController.SetActive(false);
+            //xrCanvas.renderMode = RenderMode.WorldSpace;
+        }
+        else
+        {
+            Time.timeScale = 1;
+            menuControllerRight.SetActive(false);
+            menuControllerLeft.SetActive(false);
+            directControllerRight.SetActive(true);
+            directControllerLeft.SetActive(true);
+            teleController.SetActive(true);
+            //xrCanvas.renderMode = RenderMode.ScreenSpaceCamera;
+
+        }
+
+        //Game progression
+
 
         timer = timer + Time.deltaTime;
 
@@ -74,8 +114,14 @@ public class GameManager : MonoBehaviour
         if (stageInt == 4)
         {
             wrench.GetComponent<Outline>().enabled = false;
-            //coverRemovable.GetComponent<BoxCollider>().enabled = true;
             //infoPanel.LevelFour();
+        }
+
+        if (stageInt == 5)
+        {
+            bearingExtractor.GetComponent<Outline>().enabled = true;
+            bearingBroken.GetComponent<Outline>().enabled = true;
+            //infoPanel.LevelFive();
         }
 
     }
