@@ -34,6 +34,14 @@ public class GameManager : MonoBehaviour
     public GameObject bearingNew;
     public GameObject bearingNewSocket;
     public GameObject bearingBroken;
+    public GameObject coverRemovableSocket;
+
+
+    public Transform bearingSocketTransform;
+    public Transform coverRemovableTransform;
+
+    public Rigidbody bearingNewRB;
+    public Rigidbody coverRemovableRB;
 
     void Awake()
     {
@@ -47,6 +55,7 @@ public class GameManager : MonoBehaviour
         menuControllerRight.SetActive(false);
 
         bearingNewSocket.SetActive(false);
+        coverRemovableSocket.SetActive(false);
 
     }
 
@@ -136,6 +145,60 @@ public class GameManager : MonoBehaviour
             //infoPanel.LevelSix();
         }
 
+        if (stageInt == 7)
+        {
+            bearingNew.GetComponent<Outline>().enabled = false;
+            bearingNew.transform.position = bearingSocketTransform.position;
+            bearingNew.transform.rotation = bearingSocketTransform.rotation;
+
+            bearingNewRB.useGravity = false;
+            bearingNewRB.isKinematic = true;
+
+            bearingNew.GetComponent<Collider>().enabled = false;
+            bearingNewSocket.SetActive(false);
+            coverRemovableSocket.SetActive(true);
+
+            //infoPanel.LevelSeven();
+        }
+
+        if (stageInt == 8)
+        {
+            coverRemovable.GetComponent<Outline>().enabled = false;
+
+
+            coverRemovable.transform.position = coverRemovableTransform.position;
+            coverRemovable.transform.rotation = coverRemovableTransform.rotation;
+            coverRemovableRB.useGravity = false;
+            coverRemovableRB.isKinematic = true;
+
+            coverRemovableSocket.SetActive(false);
+
+            foreach (GameObject bolt in boltsList)
+            {
+                bolt.SetActive(true);
+            }
+
+            //infoPanel.LevelEight();
+        }
+
+        if (stageInt == 9)
+        {
+
+        }
+
+
     }
+
+    public void StageInt7()
+    {
+        stageInt = 7;
+    }
+
+    public void StageInt8()
+    {
+        stageInt = 8;
+    }
+
+
 
 }

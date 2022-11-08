@@ -29,6 +29,13 @@ public class CoverRemovable : MonoBehaviour
             Physics.IgnoreLayerCollision(7, 16, false);
 
         }
+
+        if (gameManager.stageInt == 7)
+        {
+            gameObject.GetComponent<Outline>().enabled = true;
+            //Physics.IgnoreLayerCollision(7, 16, false);
+
+        }
     }
 
     /*
@@ -109,11 +116,23 @@ public class CoverRemovable : MonoBehaviour
 
     public void CoverAbandoned()
     {
-        gameManager.stageInt = 5;
-        playAudioGranted.PlayGranted();
-        Debug.Log("Stage int to 5, cover dropped");
-        rb.useGravity = true;
-        gameObject.GetComponent<Outline>().enabled = false;
+
+        if (gameManager.stageInt == 4)
+        {
+            gameManager.stageInt = 5;
+            playAudioGranted.PlayGranted();
+            Debug.Log("Stage int to 5, cover dropped");
+            rb.useGravity = true;
+            gameObject.GetComponent<Outline>().enabled = false;
+        }
+
+        if (gameManager.stageInt == 7)
+        {
+            Debug.Log("Stage int to 8, cover set back");
+            gameManager.stageInt = 8;
+
+        }
+
     }
 
 
