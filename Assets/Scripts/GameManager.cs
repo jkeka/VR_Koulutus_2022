@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     public int stageInt;
     public int openedBolts;
+    public int attachedBolts;
 
     public static float totalTime;
 
@@ -20,6 +21,8 @@ public class GameManager : MonoBehaviour
     public InfoPanel infoPanel;
 
     public GameObject menuPanel;
+    public GameObject winPanel;
+    public GameObject infoPanel_Panel;
     public GameObject menuControllerLeft;
     public GameObject menuControllerRight;
 
@@ -43,6 +46,8 @@ public class GameManager : MonoBehaviour
     public Rigidbody bearingNewRB;
     public Rigidbody coverRemovableRB;
 
+    public Material M_Socket;
+
     void Awake()
     {
         timer = 0;
@@ -50,12 +55,15 @@ public class GameManager : MonoBehaviour
 
         stageInt = 1;
         openedBolts = 0;
+        attachedBolts = 0;
 
         menuControllerLeft.SetActive(false);
         menuControllerRight.SetActive(false);
 
         bearingNewSocket.SetActive(false);
         coverRemovableSocket.SetActive(false);
+
+        winPanel.SetActive(false);
 
     }
 
@@ -66,13 +74,10 @@ public class GameManager : MonoBehaviour
 
         if (menuPanel.activeSelf)
         {
+            PausedForMenu();
             Time.timeScale = 0;
-            menuControllerRight.SetActive(true);
-            menuControllerLeft.SetActive(true);
-            directControllerRight.SetActive(false);
-            directControllerLeft.SetActive(false);
-            teleController.SetActive(false);
-            //xrCanvas.renderMode = RenderMode.WorldSpace;
+
+
         }
         else
         {
@@ -83,7 +88,6 @@ public class GameManager : MonoBehaviour
             directControllerLeft.SetActive(true);
             teleController.SetActive(true);
             //xrCanvas.renderMode = RenderMode.ScreenSpaceCamera;
-
         }
 
         //Game progression
@@ -172,18 +176,30 @@ public class GameManager : MonoBehaviour
             coverRemovableRB.isKinematic = true;
 
             coverRemovableSocket.SetActive(false);
+            coverRemovable.GetComponent<Collider>().enabled = false;
+
 
             foreach (GameObject bolt in boltsList)
             {
                 bolt.SetActive(true);
             }
 
+            if (attachedBolts >= boltsList.Count)
+            {
+                stageInt = 9;
+            }
             //infoPanel.LevelEight();
         }
 
         if (stageInt == 9)
         {
 
+            //Debug.Log("Game won!");
+            //infoPanel.LevelNine();
+            winPanel.SetActive(true);
+            infoPanel_Panel.SetActive(false);
+            menuPanel.SetActive(false);
+            PausedForMenu();
         }
 
 
@@ -199,6 +215,15 @@ public class GameManager : MonoBehaviour
         stageInt = 8;
     }
 
+    public void PausedForMenu()
+    {
 
+        menuControllerRight.SetActive(true);
+        menuControllerLeft.SetActive(true);
+        directControllerRight.SetActive(false);
+        directControllerLeft.SetActive(false);
+        teleController.SetActive(false);
+        //xrCanvas.renderMode = RenderMode.WorldSpace;
+    }
 
 }

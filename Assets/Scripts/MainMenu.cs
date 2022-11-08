@@ -39,4 +39,14 @@ public class MainMenu : MonoBehaviour
         QuitPanel.SetActive(false);
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene("GameScene");
+    }
+
+    public void FeedbackScene()
+    {
+        SceneManager.LoadScene("FeedbackScene");
+    }
+
 }

@@ -8,6 +8,7 @@ public class SafetyDoor : MonoBehaviour
     public GameManager gameManager;
 
     //public GameObject doorFrame;
+    public GameObject stopper;
 
     public Material M_Int_Hover; 
     public Material M_RobotOrange;
@@ -38,7 +39,8 @@ public class SafetyDoor : MonoBehaviour
         {
             gameObject.GetComponent<Outline>().enabled = true;
         }
-        
+
+
         if (doorOpened)
         {
             Quaternion targetRotation = Quaternion.Euler(direction);
@@ -71,7 +73,7 @@ public class SafetyDoor : MonoBehaviour
             {
                 c.enabled = false;
             }
-            Destroy(this);
+            //Destroy(this);
         }
 
     }
