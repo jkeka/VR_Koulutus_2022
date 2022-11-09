@@ -24,7 +24,7 @@ public class CoverBoltsAttach : MonoBehaviour
 
         gameObject.GetComponent<Renderer>().material = M_Floor;
 
-        gameObject.GetComponent<Outline>().enabled = true;
+        //gameObject.GetComponent<Outline>().enabled = true;
 
     }
 
@@ -74,7 +74,8 @@ public class CoverBoltsAttach : MonoBehaviour
 
     public void AttachBolt()
     {
-        gameObject.GetComponent<Outline>().enabled = false;
+        //gameObject.GetComponent<Outline>().enabled = false;
+        Destroy(GetComponent<Outline>());
 
         gameObject.GetComponent<Renderer>().material = M_Floor;
         playAudioGranted.PlayGranted();

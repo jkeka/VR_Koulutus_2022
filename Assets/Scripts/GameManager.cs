@@ -186,7 +186,10 @@ public class GameManager : MonoBehaviour
                 bolt.SetActive(true);
             }
 
- 
+            foreach (GameObject bolt in boltsList)
+            {
+                bolt.GetComponent<Outline>().enabled = true;
+            }
 
             if (attachedBolts >= boltsList.Count)
             {
