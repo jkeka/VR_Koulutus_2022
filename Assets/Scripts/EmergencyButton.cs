@@ -10,8 +10,6 @@ public class EmergencyButton : MonoBehaviour
 
     public GameManager gameManager;
 
-    public PlayAudioGranted playAudioGranted;
-
     public InputActionReference toggleReference = null;
 
     bool isOnPerimeter = false;
@@ -72,7 +70,7 @@ public class EmergencyButton : MonoBehaviour
         gameObject.GetComponent<Renderer>().material = M_Red;
         gameObject.GetComponent<BoxCollider>().enabled = false;
         isOnPerimeter = true;
-        playAudioGranted.PlayGranted();
+        gameManager.PlayGranted();
         gameManager.stageInt = 2;
         Debug.Log("Button pushed");
         Destroy(this);

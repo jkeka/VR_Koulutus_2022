@@ -9,12 +9,19 @@ public class GameManager : MonoBehaviour
     private float timer;
     public static float endTime;
 
+    public AudioClip granted;
+    AudioSource audioSource;
 
     public int stageInt;
     public int openedBolts;
     public int attachedBolts;
 
     public static float totalTime;
+
+    public bool allBoltsLoose;
+    public bool allBoltsFloorColor;
+    public bool timerOn;
+    public static bool wasCautious;
 
     //public Canvas xrCanvas;
 
@@ -41,6 +48,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject menuScreen;
 
+    public GameObject menuScreenBasics;
+    public GameObject menuScreenFeedback;
 
     public Transform bearingSocketTransform;
     public Transform coverRemovableTransform;
@@ -49,6 +58,7 @@ public class GameManager : MonoBehaviour
     public Rigidbody coverRemovableRB;
 
     public Material M_Socket;
+    public Material M_Floor;
 
     void Awake()
     {
@@ -66,36 +76,28 @@ public class GameManager : MonoBehaviour
         coverRemovableSocket.SetActive(false);
 
         winPanel.SetActive(false);
+        menuScreenFeedback.SetActive(false);
 
+
+        audioSource = GetComponent<AudioSource>();
+
+        allBoltsLoose = true;
+        allBoltsFloorColor = true;
+        wasCautious = true;
+
+        timerOn = true;
     }
 
     void Update()
     {
-        //MenuPanel
-        //Debug.Log(Time.timeScale);
-
-        if (menuPanel.activeSelf)
-        {
-            PausedForMenu();
-            Time.timeScale = 0;
-
-
-        }
-        else
-        {
-            Time.timeScale = 1;
-            menuControllerRight.SetActive(false);
-            menuControllerLeft.SetActive(false);
-            directControllerRight.SetActive(true);
-            directControllerLeft.SetActive(true);
-            teleController.SetActive(true);
-            //xrCanvas.renderMode = RenderMode.ScreenSpaceCamera;
-        }
 
         //Game progression
 
+        if (timerOn == true)
+        {
+            timer = timer + Time.deltaTime;
 
-        timer = timer + Time.deltaTime;
+        }
 
         if (stageInt == 1)
         {
@@ -110,12 +112,6 @@ public class GameManager : MonoBehaviour
         if(stageInt == 3)
         {
             infoPanel.LevelThree();
-            /*
-            for (int i = 0; i < boltsList.Count; i++)
-            {
-                boltsList[i].GetComponent<Outline>().enabled = true;
-            }
-            */
 
             foreach (GameObject bolt in boltsList)
             {
@@ -186,10 +182,23 @@ public class GameManager : MonoBehaviour
                 bolt.SetActive(true);
             }
 
-            foreach (GameObject bolt in boltsList)
+            if (allBoltsFloorColor == true)
             {
-                bolt.GetComponent<Outline>().enabled = true;
+                foreach (GameObject bolt in boltsList)
+                {
+                    bolt.GetComponent<Renderer>().material = M_Floor;
+                }
             }
+
+
+            if (allBoltsLoose == true)
+            {
+                foreach (GameObject bolt in boltsList)
+                {
+                    bolt.GetComponent<Outline>().enabled = true;
+                }
+            }
+
 
             if (attachedBolts >= boltsList.Count)
             {
@@ -201,14 +210,13 @@ public class GameManager : MonoBehaviour
         if (stageInt == 9)
         {
 
-            //Debug.Log("Game won!");
             infoPanel.LevelNine();
-            //winPanel.SetActive(true);
-            //infoPanel_Panel.SetActive(false);
-            //menuPanel.SetActive(false);
-            //PausedForMenu();
             menuScreen.GetComponent<Outline>().enabled = true;
+            menuScreenBasics.SetActive(false);
+            menuScreenFeedback.SetActive(true);
 
+            timerOn = false;
+            endTime = timer;
         }
 
 
@@ -224,15 +232,9 @@ public class GameManager : MonoBehaviour
         stageInt = 8;
     }
 
-    public void PausedForMenu()
+
+    public void PlayGranted()
     {
-
-        menuControllerRight.SetActive(true);
-        menuControllerLeft.SetActive(true);
-        directControllerRight.SetActive(false);
-        directControllerLeft.SetActive(false);
-        teleController.SetActive(false);
-        //xrCanvas.renderMode = RenderMode.WorldSpace;
+        audioSource.PlayOneShot(granted, 1f);
     }
-
 }

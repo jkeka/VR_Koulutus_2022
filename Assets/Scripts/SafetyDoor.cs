@@ -13,7 +13,6 @@ public class SafetyDoor : MonoBehaviour
     public Material M_Int_Hover; 
     public Material M_RobotOrange;
 
-    public PlayAudioGranted playAudioGranted;
 
     private Vector3 direction = new Vector3(0f, -180f, 0f);
 
@@ -107,7 +106,7 @@ public class SafetyDoor : MonoBehaviour
         //isOnPerimeter = true;
         gameObject.GetComponent<Outline>().enabled = false;
         gameObject.GetComponent<Renderer>().material = M_RobotOrange;
-        playAudioGranted.PlayGranted();
+        gameManager.PlayGranted();
         gameManager.stageInt = 3;
         Debug.Log("Safety door opened");
     }

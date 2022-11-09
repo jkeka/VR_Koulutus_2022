@@ -11,7 +11,6 @@ public class CoverBoltsAttach : MonoBehaviour
 
     public GameManager gameManager;
 
-    public PlayAudioGranted playAudioGranted;
 
     public InputActionReference toggleReference = null;
 
@@ -23,8 +22,6 @@ public class CoverBoltsAttach : MonoBehaviour
         toggleReference.action.started += Toggle;
 
         gameObject.GetComponent<Renderer>().material = M_Floor;
-
-        //gameObject.GetComponent<Outline>().enabled = true;
 
     }
 
@@ -43,6 +40,7 @@ public class CoverBoltsAttach : MonoBehaviour
 
         if (other.tag == "Wrench" && gameManager.stageInt == 8)
         {
+            gameManager.allBoltsFloorColor = false;
             gameObject.GetComponent<Renderer>().material = M_Int_Hover;
             isOnPerimeter = true;
         }
@@ -74,11 +72,11 @@ public class CoverBoltsAttach : MonoBehaviour
 
     public void AttachBolt()
     {
-        //gameObject.GetComponent<Outline>().enabled = false;
+        gameManager.allBoltsLoose = false;
         Destroy(GetComponent<Outline>());
 
         gameObject.GetComponent<Renderer>().material = M_Floor;
-        playAudioGranted.PlayGranted();
+        gameManager.PlayGranted();
         gameManager.attachedBolts++;
         Debug.Log("Bolt attached");
 

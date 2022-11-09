@@ -49,4 +49,9 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("FeedbackScene");
     }
 
+    public void MenuScene()
+    {
+        SceneManager.LoadScene("MenuScene");
+    }
+
 }

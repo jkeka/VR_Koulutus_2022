@@ -11,7 +11,6 @@ public class CoverRemovable : MonoBehaviour
 
     public GameManager gameManager;
 
-    public PlayAudioGranted playAudioGranted;
 
     public Rigidbody rb;
 
@@ -33,28 +32,11 @@ public class CoverRemovable : MonoBehaviour
         if (gameManager.stageInt == 7)
         {
             gameObject.GetComponent<Outline>().enabled = true;
-            //Physics.IgnoreLayerCollision(7, 16, false);
 
         }
     }
 
-    /*
-    public InputActionReference toggleReference = null;
-    
-    bool isOnPerimeter = false;
 
-    void Awake()
-    {
-        toggleReference.action.started += Toggle;
-    }
-
-    private void OnDestroy()
-    {
-        toggleReference.action.started -= Toggle;
-
-    }
-
-    */
 
     private void OnTriggerEnter(Collider other) //Toiminnallisuus, kun pelaaja menee sis��n 
     {
@@ -62,7 +44,6 @@ public class CoverRemovable : MonoBehaviour
         if (other.tag == "GameController" && gameManager.stageInt == 4)
         {
             gameObject.GetComponent<Renderer>().material = M_Int_Hover;
-            //isOnPerimeter = true;
 
 
         }
@@ -75,36 +56,12 @@ public class CoverRemovable : MonoBehaviour
         {
 
             gameObject.GetComponent<Renderer>().material = M_GreyMetal;
-            //isOnPerimeter = false;
         }
 
 
     }
 
-    /*
-    private void Toggle(InputAction.CallbackContext context)
-    {
-        if (isOnPerimeter == true)
-        {
-            bool isActive = !gameObject.activeSelf;
-            RemoveCover();
-        }
 
-    }
-
-    public void RemoveCover()
-    {
-
-        gameObject.GetComponent<Outline>().enabled = false;
-        gameObject.GetComponent<Renderer>().material = M_GreyMetal;
-        isOnPerimeter = true;
-        //Destroy (this);
-        gameObject.GetComponent<Rigidbody>().useGravity = true;
-        playAudioGranted.PlayGranted();
-        gameManager.stageInt = 5;
-
-    }
-    */
 
     public void CoverGrabbed()
     {
@@ -120,7 +77,7 @@ public class CoverRemovable : MonoBehaviour
         if (gameManager.stageInt == 4)
         {
             gameManager.stageInt = 5;
-            playAudioGranted.PlayGranted();
+            gameManager.PlayGranted();
             Debug.Log("Stage int to 5, cover dropped");
             rb.useGravity = true;
             gameObject.GetComponent<Outline>().enabled = false;
@@ -130,7 +87,7 @@ public class CoverRemovable : MonoBehaviour
         {
             Debug.Log("Stage int to 8, cover set back");
             gameManager.stageInt = 8;
-            playAudioGranted.PlayGranted();
+            gameManager.PlayGranted();
 
         }
 

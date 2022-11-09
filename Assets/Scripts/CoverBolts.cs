@@ -11,7 +11,6 @@ public class CoverBolts : MonoBehaviour
 
     public GameManager gameManager;
 
-    public PlayAudioGranted playAudioGranted;
 
     public InputActionReference toggleReference = null;
 
@@ -67,7 +66,7 @@ public class CoverBolts : MonoBehaviour
     public void OpenBolt()
     {
 
-        playAudioGranted.PlayGranted();
+        gameManager.PlayGranted();
         gameManager.openedBolts++;
         Debug.Log("Bolt opened");
         Destroy(this);

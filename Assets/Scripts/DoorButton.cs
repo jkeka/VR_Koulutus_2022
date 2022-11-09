@@ -73,7 +73,7 @@ public class DoorButton : MonoBehaviour
         gameObject.GetComponent<Outline>().enabled = false;
         gameObject.GetComponent<Renderer>().material = M_Blue;
         Destroy (this);
-        playAudioGranted.PlayGranted();
+        gameManager.PlayGranted();
         gameManager.stageInt = 2;
 
     }

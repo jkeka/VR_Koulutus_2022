@@ -10,9 +10,8 @@ public class RestartButton : MonoBehaviour
     public Material M_Int_Hover;
     public Material M_Base;
 
-    //public GameManager gameManager;
+    public GameManager gameManager;
 
-    public PlayAudioGranted playAudioGranted;
 
     public InputActionReference toggleReference = null;
 
@@ -68,7 +67,7 @@ public class RestartButton : MonoBehaviour
 
     public void RestartButtonPush()
     {
-        playAudioGranted.PlayGranted();
+        gameManager.PlayGranted();
         SceneManager.LoadScene("GameScene");
 
     }

@@ -12,7 +12,6 @@ public class MainMenuButton : MonoBehaviour
 
     public GameManager gameManager;
 
-    public PlayAudioGranted playAudioGranted;
 
     public InputActionReference toggleReference = null;
 
@@ -68,7 +67,7 @@ public class MainMenuButton : MonoBehaviour
 
     public void MainMenuButtonPush()
     {
-        playAudioGranted.PlayGranted();
+        gameManager.PlayGranted();
         SceneManager.LoadScene("MenuScene");
 
         if (gameManager.stageInt == 9)

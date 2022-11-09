@@ -42,7 +42,6 @@ public class InfoPanel : MonoBehaviour
     {
         bool isActive = !gameObject.activeSelf;
         gameObject.SetActive(isActive);
-        //menuPanel.SetActive(false);
     }
 
     public void LevelOne()

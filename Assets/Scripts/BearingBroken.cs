@@ -11,7 +11,6 @@ public class BearingBroken : MonoBehaviour
 
     public GameManager gameManager;
 
-    public PlayAudioGranted playAudioGranted;
 
     public InputActionReference toggleReference = null;
 
@@ -67,7 +66,7 @@ public class BearingBroken : MonoBehaviour
     public void ExtractBearing()
     {
 
-        playAudioGranted.PlayGranted();
+        gameManager.PlayGranted();
         Debug.Log("Bearing extracted");
         gameObject.SetActive(false);
         gameManager.stageInt = 6;
