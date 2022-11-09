@@ -14,6 +14,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
     guid: 7d97c89e4e322864cb19245d56f6c86c
+  - enabled: 1
+    path: Assets/Scenes/PauseScene.unity
+    guid: 8e63d7566d2abe543ae9a7ab6ba6130d
+  - enabled: 1
+    path: Assets/Scenes/FeedbackScene.unity
+    guid: 985f35f4c9db0194fb5b84050f1d85a0
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: c094a846c868d6b42b068ca3d26ef730, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 79faff864cff6894a8076d2a346b6b5f, type: 2}

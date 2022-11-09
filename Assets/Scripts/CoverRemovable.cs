@@ -130,6 +130,7 @@ public class CoverRemovable : MonoBehaviour
         {
             Debug.Log("Stage int to 8, cover set back");
             gameManager.stageInt = 8;
+            playAudioGranted.PlayGranted();
 
         }
 

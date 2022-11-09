@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 
 public class MenuPanel : MonoBehaviour
@@ -14,7 +13,7 @@ public class MenuPanel : MonoBehaviour
 
     public InputActionReference toggleReference = null;
 
-
+    /*
 
     private void Awake()
     {
@@ -39,10 +38,10 @@ public class MenuPanel : MonoBehaviour
     private void Toggle(InputAction.CallbackContext context)
     {
         bool isActive = !gameObject.activeSelf;
-        //gameObject.SetActive(isActive);
-        SceneManager.LoadScene("PauseScene", LoadSceneMode.Additive);
+        gameObject.SetActive(isActive);
+
         infoPanel.SetActive(false);
 
     }
-
+    */
 }

@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     public GameObject bearingBroken;
     public GameObject coverRemovableSocket;
 
+    public GameObject menuScreen;
+
 
     public Transform bearingSocketTransform;
     public Transform coverRemovableTransform;
@@ -131,14 +133,14 @@ public class GameManager : MonoBehaviour
         if (stageInt == 4)
         {
             wrench.GetComponent<Outline>().enabled = false;
-            //infoPanel.LevelFour();
+            infoPanel.LevelFour();
         }
 
         if (stageInt == 5)
         {
             bearingExtractor.GetComponent<Outline>().enabled = true;
             bearingBroken.GetComponent<Outline>().enabled = true;
-            //infoPanel.LevelFive();
+            infoPanel.LevelFive();
         }
 
         if (stageInt == 6)
@@ -146,7 +148,7 @@ public class GameManager : MonoBehaviour
             bearingExtractor.GetComponent<Outline>().enabled = false;
             bearingNew.GetComponent<Outline>().enabled = true;
             bearingNewSocket.SetActive(true);
-            //infoPanel.LevelSix();
+            infoPanel.LevelSix();
         }
 
         if (stageInt == 7)
@@ -162,7 +164,7 @@ public class GameManager : MonoBehaviour
             bearingNewSocket.SetActive(false);
             coverRemovableSocket.SetActive(true);
 
-            //infoPanel.LevelSeven();
+            infoPanel.LevelSeven();
         }
 
         if (stageInt == 8)
@@ -184,22 +186,26 @@ public class GameManager : MonoBehaviour
                 bolt.SetActive(true);
             }
 
+ 
+
             if (attachedBolts >= boltsList.Count)
             {
                 stageInt = 9;
             }
-            //infoPanel.LevelEight();
+            infoPanel.LevelEight();
         }
 
         if (stageInt == 9)
         {
 
             //Debug.Log("Game won!");
-            //infoPanel.LevelNine();
-            winPanel.SetActive(true);
-            infoPanel_Panel.SetActive(false);
-            menuPanel.SetActive(false);
-            PausedForMenu();
+            infoPanel.LevelNine();
+            //winPanel.SetActive(true);
+            //infoPanel_Panel.SetActive(false);
+            //menuPanel.SetActive(false);
+            //PausedForMenu();
+            menuScreen.GetComponent<Outline>().enabled = true;
+
         }
 
 

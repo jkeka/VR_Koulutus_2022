@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class CoverBoltsAttach : MonoBehaviour
-{
 
+public class MainMenuButton : MonoBehaviour
+{
     public Material M_Int_Hover;
-    public Material M_Floor;
+    public Material M_Base;
 
     public GameManager gameManager;
 
@@ -19,19 +20,11 @@ public class CoverBoltsAttach : MonoBehaviour
 
     void Awake()
     {
-
         toggleReference.action.started += Toggle;
-
-        gameObject.GetComponent<Renderer>().material = M_Floor;
-
-        gameObject.GetComponent<Outline>().enabled = true;
-
     }
-
 
     private void OnDestroy()
     {
-
         toggleReference.action.started -= Toggle;
 
     }
@@ -41,20 +34,22 @@ public class CoverBoltsAttach : MonoBehaviour
     private void OnTriggerEnter(Collider other) //Toiminnallisuus, kun pelaaja menee sis��n 
     {
 
-        if (other.tag == "Wrench" && gameManager.stageInt == 8)
+        if (other.tag == "GameController")
         {
             gameObject.GetComponent<Renderer>().material = M_Int_Hover;
             isOnPerimeter = true;
+
+
         }
 
     }
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.tag == "Wrench" && gameManager.stageInt == 8)
+        if (other.tag == "GameController")
         {
 
-            gameObject.GetComponent<Renderer>().material = M_Floor;
+            gameObject.GetComponent<Renderer>().material = M_Base;
             isOnPerimeter = false;
         }
 
@@ -63,26 +58,24 @@ public class CoverBoltsAttach : MonoBehaviour
 
     private void Toggle(InputAction.CallbackContext context)
     {
-        if (isOnPerimeter == true && gameManager.stageInt == 8)
+        if (isOnPerimeter == true)
         {
             bool isActive = !gameObject.activeSelf;
-            AttachBolt();
-            Debug.Log("Bolt clicked with wrench");
+            MainMenuButtonPush();
         }
 
     }
 
-    public void AttachBolt()
+    public void MainMenuButtonPush()
     {
-        gameObject.GetComponent<Outline>().enabled = false;
-
-        gameObject.GetComponent<Renderer>().material = M_Floor;
         playAudioGranted.PlayGranted();
-        gameManager.attachedBolts++;
-        Debug.Log("Bolt attached");
+        SceneManager.LoadScene("MenuScene");
 
-        Destroy(this);
+        if (gameManager.stageInt == 9)
+        {
+            SceneManager.LoadScene("FeedbackScene");
 
+        }
 
     }
 
