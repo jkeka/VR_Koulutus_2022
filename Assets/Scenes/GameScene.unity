@@ -615,7 +615,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 81f05a1f063fc424daf0250cf0e3fbbf, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81f05a1f063fc424daf0250cf0e3fbbf, type: 3}
       propertyPath: m_LocalScale.x
@@ -1328,7 +1328,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 81f05a1f063fc424daf0250cf0e3fbbf, type: 3}
       propertyPath: m_RootOrder
-      value: 36
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 81f05a1f063fc424daf0250cf0e3fbbf, type: 3}
       propertyPath: m_LocalScale.x
@@ -2996,7 +2996,7 @@ MonoBehaviour:
   - {fileID: 1922054907527950339}
   - {fileID: 8565627651251724529}
   - {fileID: 6274592608858291150}
-  wrench: {fileID: 1309826464}
+  wrench: {fileID: 1656666090}
   coverRemovable: {fileID: 3539751894436879923}
   bearingExtractor: {fileID: 1310682947}
   bearingNew: {fileID: 1965710132}
@@ -8020,7 +8020,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652446499130}
-  m_RootOrder: 39
+  m_RootOrder: 40
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1490739387
 BoxCollider:
@@ -12281,7 +12281,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 543450652446499130}
-  m_RootOrder: 38
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &2032986647
 AudioSource:
@@ -13242,13 +13242,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 225339489561417429}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 2.4018936, y: 0.00036149935, z: 2.544713}
+  m_LocalScale: {x: 2.6371267, y: 2.6371264, z: 2.6371267}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1902775110083652865}
-  m_RootOrder: 0
+  m_Father: {fileID: 543450652446499130}
+  m_RootOrder: 36
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &225339489561417429
 GameObject:
@@ -13261,6 +13261,7 @@ GameObject:
   - component: {fileID: 138045294715168265}
   - component: {fileID: 6763530983700628699}
   - component: {fileID: 6989101199633320637}
+  - component: {fileID: 6989101199633320638}
   m_Layer: 11
   m_Name: SafetyDoor
   m_TagString: Untagged
@@ -13420,6 +13421,7 @@ Transform:
   - {fileID: 1028652680}
   - {fileID: 1593675955}
   - {fileID: 1902775110083652865}
+  - {fileID: 138045294715168265}
   - {fileID: 439607929}
   - {fileID: 226783496}
   - {fileID: 2032986645}
@@ -13823,8 +13825,7 @@ Transform:
   m_LocalPosition: {x: 2.4018936, y: 0.00036149935, z: 2.544713}
   m_LocalScale: {x: 2.6371267, y: 2.6371267, z: 2.6371267}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 138045294715168265}
+  m_Children: []
   m_Father: {fileID: 543450652446499130}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
@@ -16681,6 +16682,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6989101199633320638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225339489561417429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8ab4fd439898049bac1ee389fbabec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toFollow: {fileID: 1902775110083652865}
 --- !u!1 &7048841436750177148
 GameObject:
   m_ObjectHideFlags: 0
