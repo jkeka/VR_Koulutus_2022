@@ -9,14 +9,17 @@ public class GameManager : MonoBehaviour
     private float timer;
     public static float endTime;
 
+    public float outlineWidth;
+
     public AudioClip granted;
+    public AudioClip accomplished;
+    public AudioClip warning;
     AudioSource audioSource;
 
     public int stageInt;
     public int openedBolts;
     public int attachedBolts;
 
-    public static float totalTime;
 
     public bool allBoltsLoose;
     public bool allBoltsFloorColor;
@@ -27,7 +30,7 @@ public class GameManager : MonoBehaviour
 
     public InfoPanel infoPanel;
 
-    public GameObject menuPanel;
+    public GameObject toDoPanel;
     public GameObject winPanel;
     public GameObject infoPanel_Panel;
     public GameObject menuControllerLeft;
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour
         wasCautious = true;
 
         timerOn = true;
+
     }
 
     void Update()
@@ -166,6 +170,7 @@ public class GameManager : MonoBehaviour
         if (stageInt == 8)
         {
             coverRemovable.GetComponent<Outline>().enabled = false;
+            wrench.GetComponent<Outline>().enabled = true;
 
 
             coverRemovable.transform.position = coverRemovableTransform.position;
@@ -203,17 +208,22 @@ public class GameManager : MonoBehaviour
             if (attachedBolts >= boltsList.Count)
             {
                 stageInt = 9;
+                PlayAccomplished();
+                infoPanel.LevelNine();
+                infoPanel_Panel.SetActive(true);
+                toDoPanel.SetActive(false);
             }
             infoPanel.LevelEight();
         }
 
         if (stageInt == 9)
         {
+            wrench.GetComponent<Outline>().enabled = false;
 
-            infoPanel.LevelNine();
             menuScreen.GetComponent<Outline>().enabled = true;
             menuScreenBasics.SetActive(false);
             menuScreenFeedback.SetActive(true);
+
 
             timerOn = false;
             endTime = timer;
@@ -237,4 +247,15 @@ public class GameManager : MonoBehaviour
     {
         audioSource.PlayOneShot(granted, 1f);
     }
+
+    public void PlayAccomplished()
+    {
+        audioSource.PlayOneShot(accomplished, 1f);
+    }
+
+    public void PlayWarning()
+    {
+        audioSource.PlayOneShot(warning, 1f);
+    }
+
 }

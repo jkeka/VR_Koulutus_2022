@@ -14,7 +14,7 @@ public class SafetyDoor : MonoBehaviour
     public Material M_RobotOrange;
 
 
-    private Vector3 direction = new Vector3(0f, -180f, 0f);
+    private Vector3 direction = new Vector3(90f, -90f, 90f);
 
     public InputActionReference toggleReference = null;
 

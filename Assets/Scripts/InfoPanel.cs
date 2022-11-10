@@ -11,7 +11,7 @@ public class InfoPanel : MonoBehaviour
     public TMPro.TMP_Text stageIntText;
 
 
-    //public GameObject menuPanel;
+    public GameObject toDoPanel;
     public TMPro.TMP_Text taskText;    
     public TMPro.TMP_Text infoText;
 
@@ -42,6 +42,7 @@ public class InfoPanel : MonoBehaviour
     {
         bool isActive = !gameObject.activeSelf;
         gameObject.SetActive(isActive);
+        toDoPanel.SetActive(false);
     }
 
     public void LevelOne()
@@ -98,7 +99,7 @@ public class InfoPanel : MonoBehaviour
     public void LevelNine()
     {
         taskText.text = "Task accomplished, well done!";
-        infoText.text = "Select restart or go to feedback";
+        infoText.text = "Select restart or feedback to proceed";
     }
 
 }

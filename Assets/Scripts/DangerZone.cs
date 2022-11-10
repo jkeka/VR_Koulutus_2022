@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class DangerZone : MonoBehaviour
 {
+
+    public GameManager gameManager;
+
     private void OnTriggerEnter(Collider other)
     {
 
@@ -12,7 +15,7 @@ public class DangerZone : MonoBehaviour
             //gameObject.GetComponent<Renderer>().material = M_Int_Hover;
 
             GameManager.wasCautious = false;
-            Debug.Log("DANGER");
+            gameManager.PlayWarning();
         }
 
     }
