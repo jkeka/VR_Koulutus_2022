@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
 
     public InfoPanel infoPanel;
 
+    public ToDoPanel toDoPanelScript;
+
     public GameObject toDoPanel;
     public GameObject winPanel;
     public GameObject infoPanel_Panel;
@@ -94,6 +96,47 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        /*
+        if (gameManager.stageInt == 2)
+        {
+            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
+        }
+
+        if (gameManager.stageInt == 3)
+        {
+            doneImagesList[gameManager.stageInt].SetActive(true);
+        }
+
+        if (gameManager.stageInt == 4)
+        {
+            doneImagesList[gameManager.stageInt].SetActive(true);
+        }
+
+        if (gameManager.stageInt == 5)
+        {
+            doneImagesList[gameManager.stageInt].SetActive(true);
+        }
+
+        if (gameManager.stageInt == 6)
+        {
+            doneImagesList[gameManager.stageInt].SetActive(true);
+        }
+
+        if (gameManager.stageInt == 7)
+        {
+            doneImagesList[gameManager.stageInt].SetActive(true);
+        }
+
+        if (gameManager.stageInt == 8)
+        {
+            doneImagesList[gameManager.stageInt].SetActive(true);
+        }
+
+        if (gameManager.stageInt == 9)
+        {
+            doneImagesList[gameManager.stageInt].SetActive(true);
+        }
+        */
 
         //Game progression
 
@@ -111,11 +154,14 @@ public class GameManager : MonoBehaviour
         if (stageInt == 2)
         {
             infoPanel.LevelTwo();
+            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
+
         }
 
-        if(stageInt == 3)
+        if (stageInt == 3)
         {
             infoPanel.LevelThree();
+            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
 
             foreach (GameObject bolt in boltsList)
             {
@@ -132,12 +178,16 @@ public class GameManager : MonoBehaviour
 
         if (stageInt == 4)
         {
+            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
+
             wrench.GetComponent<Outline>().enabled = false;
             infoPanel.LevelFour();
         }
 
         if (stageInt == 5)
         {
+            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
+
             bearingExtractor.GetComponent<Outline>().enabled = true;
             bearingBroken.GetComponent<Outline>().enabled = true;
             infoPanel.LevelFive();
@@ -145,6 +195,8 @@ public class GameManager : MonoBehaviour
 
         if (stageInt == 6)
         {
+            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
+
             bearingExtractor.GetComponent<Outline>().enabled = false;
             bearingNew.GetComponent<Outline>().enabled = true;
             bearingNewSocket.SetActive(true);
@@ -153,6 +205,8 @@ public class GameManager : MonoBehaviour
 
         if (stageInt == 7)
         {
+            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
+
             bearingNew.GetComponent<Outline>().enabled = false;
             bearingNew.transform.position = bearingSocketTransform.position;
             bearingNew.transform.rotation = bearingSocketTransform.rotation;
@@ -169,6 +223,8 @@ public class GameManager : MonoBehaviour
 
         if (stageInt == 8)
         {
+            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
+
             coverRemovable.GetComponent<Outline>().enabled = false;
             wrench.GetComponent<Outline>().enabled = true;
 
@@ -210,7 +266,6 @@ public class GameManager : MonoBehaviour
             {
                 stageInt = 9;
                 PlayAccomplished();
-                infoPanel.LevelNine();
                 infoPanel_Panel.SetActive(true);
                 toDoPanel.SetActive(false);
             }
@@ -219,7 +274,10 @@ public class GameManager : MonoBehaviour
 
         if (stageInt == 9)
         {
+            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
+
             wrench.GetComponent<Outline>().enabled = false;
+            infoPanel.LevelNine();
 
             menuScreen.GetComponent<Outline>().enabled = true;
             menuScreenBasics.SetActive(false);

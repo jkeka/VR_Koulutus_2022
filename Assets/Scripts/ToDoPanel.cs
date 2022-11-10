@@ -34,45 +34,7 @@ public class ToDoPanel : MonoBehaviour
 
     private void Update()
     {
-        if (gameManager.stageInt == 2)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
 
-        if (gameManager.stageInt == 3)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 4)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 5)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 6)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 7)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 8)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 9)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
     }
 
     private void OnDestroy()
