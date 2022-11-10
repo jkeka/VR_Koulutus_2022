@@ -176,7 +176,8 @@ public class GameManager : MonoBehaviour
             coverRemovable.transform.position = coverRemovableTransform.position;
             coverRemovable.transform.rotation = coverRemovableTransform.rotation;
             coverRemovableRB.useGravity = false;
-            coverRemovableRB.isKinematic = true;
+            coverRemovableRB.constraints = RigidbodyConstraints.FreezePosition;
+            //coverRemovableRB.isKinematic = true;
 
             coverRemovableSocket.SetActive(false);
             coverRemovable.GetComponent<Collider>().enabled = false;
