@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     public bool allBoltsLoose;
     public bool allBoltsFloorColor;
     public bool timerOn;
+    public bool coverOnSocket;
     public static bool wasCautious;
 
     //public Canvas xrCanvas;
@@ -91,6 +92,8 @@ public class GameManager : MonoBehaviour
         wasCautious = true;
 
         timerOn = true;
+
+        coverOnSocket = false;
 
     }
 
@@ -317,4 +320,14 @@ public class GameManager : MonoBehaviour
         audioSource.PlayOneShot(warning, 1f);
     }
 
+    public void CoverOnSocketToTrue()
+    {
+        coverOnSocket = true;
+    }
+
+    public void CoverOnSocketToFalse()
+    {
+        coverOnSocket = false;
+
+    }
 }

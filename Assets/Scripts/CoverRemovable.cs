@@ -83,7 +83,7 @@ public class CoverRemovable : MonoBehaviour
             gameObject.GetComponent<Outline>().enabled = false;
         }
 
-        if (gameManager.stageInt == 7)
+        if (gameManager.stageInt == 7 && gameManager.coverOnSocket == true)
         {
             Debug.Log("Stage int to 8, cover set back");
             gameManager.stageInt = 8;

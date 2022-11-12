@@ -7,12 +7,23 @@ public class DangerZone : MonoBehaviour
 
     public GameManager gameManager;
 
+    public GameObject warningPanel;
+    public GameObject warningArrow;
+
+    private void Awake()
+    {
+        warningArrow.SetActive(false);
+        warningPanel.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
 
         if (other.tag == "Player")
         {
-            //gameObject.GetComponent<Renderer>().material = M_Int_Hover;
+
+            warningArrow.SetActive(true);
+            warningPanel.SetActive(true);
 
             GameManager.wasCautious = false;
             gameManager.PlayWarning();
@@ -24,8 +35,8 @@ public class DangerZone : MonoBehaviour
 
         if (other.tag == "Player")
         {
-
-            //gameObject.GetComponent<Renderer>().material = M_Blue;
+            warningArrow.SetActive(false);
+            warningPanel.SetActive(false);
         }
 
 
