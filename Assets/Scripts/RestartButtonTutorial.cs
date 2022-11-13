@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class TutorialBolts : MonoBehaviour
+
+public class RestartButtonTutorial : MonoBehaviour
 {
     public Material M_Int_Hover;
-    public Material M_Floor;
+    public Material M_Base;
 
     public TutorialManager tutorialManager;
 
@@ -17,17 +19,11 @@ public class TutorialBolts : MonoBehaviour
 
     void Awake()
     {
-
         toggleReference.action.started += Toggle;
-
-        gameObject.GetComponent<Renderer>().material = M_Floor;
-
     }
-
 
     private void OnDestroy()
     {
-
         toggleReference.action.started -= Toggle;
 
     }
@@ -37,20 +33,22 @@ public class TutorialBolts : MonoBehaviour
     private void OnTriggerEnter(Collider other) //Toiminnallisuus, kun pelaaja menee sis��n 
     {
 
-        if (other.tag == "Wrench" && tutorialManager.tutStageInt == 5)
+        if (other.tag == "GameController")
         {
             gameObject.GetComponent<Renderer>().material = M_Int_Hover;
             isOnPerimeter = true;
+
+
         }
 
     }
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.tag == "Wrench" && tutorialManager.tutStageInt == 5)
+        if (other.tag == "GameController")
         {
 
-            gameObject.GetComponent<Renderer>().material = M_Floor;
+            gameObject.GetComponent<Renderer>().material = M_Base;
             isOnPerimeter = false;
         }
 
@@ -59,27 +57,19 @@ public class TutorialBolts : MonoBehaviour
 
     private void Toggle(InputAction.CallbackContext context)
     {
-        if (isOnPerimeter == true && tutorialManager.tutStageInt == 5)
+        if (isOnPerimeter == true)
         {
             bool isActive = !gameObject.activeSelf;
-            AttachBolt();
-            Debug.Log("Bolt clicked with wrench");
+            RestartButtonPush();
         }
 
     }
 
-    public void AttachBolt()
+    public void RestartButtonPush()
     {
-        //gameManager.allBoltsLoose = false;
-        Destroy(GetComponent<Outline>());
-
-        gameObject.GetComponent<Renderer>().material = M_Floor;
         tutorialManager.PlayGranted();
-        tutorialManager.attachedBolts++;
-        Debug.Log("Bolt attached");
-
-        Destroy(this);
-
+        SceneManager.LoadScene("TutorialScene");
 
     }
+
 }

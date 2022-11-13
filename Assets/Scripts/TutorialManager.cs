@@ -18,11 +18,20 @@ public class TutorialManager : MonoBehaviour
     public GameObject tutMotor;
     public GameObject impactWrench;
     public GameObject screen;
+    public GameObject arrow;
+
+    public GameObject rightController;
+    public GameObject teleController;
+
 
     public GameObject leftStick;
     public GameObject rightStick;
 
+    public Transform startingPosition;
+    public Transform playerStartingPosition;
+    public Transform tutMotorStartPosition;
 
+    public bool isMotorLifted;
 
     public int tutStageInt;
     public int attachedBolts;
@@ -43,32 +52,57 @@ public class TutorialManager : MonoBehaviour
 
     void Awake()
     {
+        startingPosition.position = playerStartingPosition.position;
         tutStageInt = 0;
         bolts.SetActive(false);
         tutMotorDummy.SetActive(false);
         tutMotorSocket.SetActive(false);
+        tutMotor.SetActive(true);
 
         infoPanel_Panel.SetActive(true);
 
         audioSource = GetComponent<AudioSource>();
+        arrow.SetActive(false);
 
+        rightController.SetActive(false);
+        teleController.SetActive(false);
 
+        isMotorLifted = false;
     }
 
     void Update()
     {
+        //Debug.Log("playerStartingPosition: " + playerStartingPosition.position.ToString());
+
+        if (tutStageInt == 0)
+        {
+            if (startingPosition.position.x != playerStartingPosition.position.x || startingPosition.position.z != playerStartingPosition.position.z)
+            {
+                tutStageInt = 1;
+                PlayGranted();
+            }
+        }
+
+        if (tutMotor.transform.position.y > tutMotorStartPosition.position.y && tutStageInt == 2)
+        {
+            TutStageIntTo3();
+        }
+
         if (tutStageInt == 0)
         {
             leftStick.SetActive(true);
-
+            rightController.SetActive(false);
+            teleController.SetActive(false);
         }
 
         if (tutStageInt == 1)
         {
             leftStick.SetActive(false);
             rightStick.SetActive(true);
+            rightController.SetActive(true);
+            teleController.SetActive(true);
 
-            infoText.text = "Press the left trigger forward and press grip to teleport";
+            infoText.text = "Press the right thumbstick forward and press the grip to teleport";
             toDoPanelScript.doneImagesList[tutStageInt].SetActive(true);
 
 
@@ -78,7 +112,7 @@ public class TutorialManager : MonoBehaviour
         {
             rightStick.SetActive(false);
             tutMotor.GetComponent<Outline>().enabled = true;
-
+            arrow.SetActive(true);
             infoText.text = "Pick up the motor by pressing grip";
             toDoPanelScript.doneImagesList[tutStageInt].SetActive(true);
 
@@ -87,7 +121,8 @@ public class TutorialManager : MonoBehaviour
 
         if (tutStageInt == 3)
         {
-            tutMotor.GetComponent<Outline>().enabled = false;
+            //tutMotorSocket.SetActive(true);
+
             tutMotorSocket.GetComponent<Outline>().enabled = true;
 
             infoText.text = "Set the motor to it's base";
@@ -99,6 +134,8 @@ public class TutorialManager : MonoBehaviour
         {
             tutMotorSocket.SetActive(false);
             tutMotorDummy.SetActive(true);
+            tutMotor.GetComponent<Outline>().enabled = false;
+
             tutMotorSocket.GetComponent<Outline>().enabled = false;
             impactWrench.GetComponent<Outline>().enabled = true;
             infoText.text = "Pick up the impact wrench";
@@ -110,10 +147,7 @@ public class TutorialManager : MonoBehaviour
         if (tutStageInt == 5)
         {
             bolts.SetActive(true);
-            foreach (GameObject bolt in boltsList)
-            {
-                bolt.GetComponent<Outline>().enabled = true;
-            }
+
             infoText.text = "Tighten the bolts with impact wrench pressing the trigger";
             toDoPanelScript.doneImagesList[tutStageInt].SetActive(true);
 
@@ -125,9 +159,9 @@ public class TutorialManager : MonoBehaviour
 
             impactWrench.GetComponent<Outline>().enabled = false;
             infoText.text = "Tutorial complete! Restart or exit by using the screen";
-            screen.GetComponent<Outline>().enabled = false;
+            screen.GetComponent<Outline>().enabled = true;
             toDoPanelScript.doneImagesList[tutStageInt].SetActive(true);
-
+            PlayAccomplished();
 
         }
 
@@ -140,10 +174,31 @@ public class TutorialManager : MonoBehaviour
 
     }
 
-    public void TutStageIntTo1()
+    public void TutStageIntTo2()
     {
-        tutStageInt = 1;
+        tutStageInt = 2;
     }
+
+    public void TutStageIntTo3()
+    {
+
+            tutStageInt = 3;
+
+        
+
+
+    }
+
+    public void TutStageIntTo4()
+    {
+        tutStageInt = 4;
+    }
+
+    public void TutStageIntTo5()
+    {
+        tutStageInt = 5;
+    }
+
 
     public void PlayGranted()
     {
@@ -154,4 +209,6 @@ public class TutorialManager : MonoBehaviour
     {
         audioSource.PlayOneShot(accomplished, 1f);
     }
+
+ 
 }

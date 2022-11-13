@@ -1422,6 +1422,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Move L_Stick",
+                    "type": "Button",
+                    "id": "aa1c76c8-0880-4696-b9da-077279b61301",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1477,6 +1486,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Press trigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abf6847f-52bd-494f-84d8-e4c1484e9185",
+                    "path": "<XRController>{LeftHand}/primary2DAxisTouch",
+                    "interactions": "Sector(directions=-1,sweepBehavior=3)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Move L_Stick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
