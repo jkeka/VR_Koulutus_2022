@@ -15,6 +15,7 @@ TagManager:
   - BearingBroken
   - DangerZone
   - CoverRemovableSocket
+  - TutWalls
   layers:
   - Default
   - TransparentFX
@@ -39,8 +40,8 @@ TagManager:
   - MenuScreen
   - Arrow
   - DangerZone
-  - 
-  - 
+  - TutWalls
+  - TutMotor
   - 
   - 
   - 
