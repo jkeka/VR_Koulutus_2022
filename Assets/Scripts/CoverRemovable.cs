@@ -40,14 +40,14 @@ public class CoverRemovable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) //Toiminnallisuus, kun pelaaja menee sis��n 
     {
-
+        /*/
         if (other.tag == "GameController" && gameManager.stageInt == 4)
         {
             gameObject.GetComponent<Renderer>().material = M_Int_Hover;
 
 
         }
-
+        */
         if (other.tag == "CoverRemovableSocket")
         {
             gameManager.coverOnSocket = true;
@@ -58,13 +58,13 @@ public class CoverRemovable : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-
+        /*
         if (other.tag == "GameController")
         {
 
             gameObject.GetComponent<Renderer>().material = M_GreyMetal;
         }
-
+        */
         if (other.tag == "CoverRemovableSocket")
         {
             gameManager.coverOnSocket = false;
