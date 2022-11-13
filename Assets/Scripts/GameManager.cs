@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> boltsList;
     public GameObject wrench;
     public GameObject coverRemovable;
+    public GameObject coverRemovableDummy;
     public GameObject bearingExtractor;
     public GameObject bearingNew;
     public GameObject bearingNewSocket;
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
 
         bearingNewSocket.SetActive(false);
         coverRemovableSocket.SetActive(false);
+        coverRemovableDummy.SetActive(false);
 
         winPanel.SetActive(false);
         menuScreenFeedback.SetActive(false);
@@ -99,47 +101,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        /*
-        if (gameManager.stageInt == 2)
-        {
-            toDoPanelScript.doneImagesList[stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 3)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 4)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 5)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 6)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 7)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 8)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-
-        if (gameManager.stageInt == 9)
-        {
-            doneImagesList[gameManager.stageInt].SetActive(true);
-        }
-        */
+   
 
         //Game progression
 
@@ -234,9 +196,12 @@ public class GameManager : MonoBehaviour
 
             coverRemovable.transform.position = coverRemovableTransform.position;
             coverRemovable.transform.rotation = coverRemovableTransform.rotation;
-            coverRemovableRB.useGravity = false;
-            coverRemovableRB.constraints = RigidbodyConstraints.FreezePosition;
+            //coverRemovableRB.useGravity = false;
+            //coverRemovableRB.constraints = RigidbodyConstraints.FreezePosition;
             //coverRemovableRB.isKinematic = true;
+
+            coverRemovable.SetActive(false);
+            coverRemovableDummy.SetActive(true);
 
             coverRemovableSocket.SetActive(false);
             coverRemovable.GetComponent<Collider>().enabled = false;
@@ -319,7 +284,7 @@ public class GameManager : MonoBehaviour
     {
         audioSource.PlayOneShot(warning, 1f);
     }
-
+    /*
     public void CoverOnSocketToTrue()
     {
         coverOnSocket = true;
@@ -330,4 +295,5 @@ public class GameManager : MonoBehaviour
         coverOnSocket = false;
 
     }
+    */
 }

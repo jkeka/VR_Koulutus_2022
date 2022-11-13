@@ -48,6 +48,13 @@ public class CoverRemovable : MonoBehaviour
 
         }
 
+        if (other.tag == "CoverRemovableSocket")
+        {
+            gameManager.coverOnSocket = true;
+
+
+        }
+
     }
     private void OnTriggerExit(Collider other)
     {
@@ -58,6 +65,12 @@ public class CoverRemovable : MonoBehaviour
             gameObject.GetComponent<Renderer>().material = M_GreyMetal;
         }
 
+        if (other.tag == "CoverRemovableSocket")
+        {
+            gameManager.coverOnSocket = false;
+
+
+        }
 
     }
 

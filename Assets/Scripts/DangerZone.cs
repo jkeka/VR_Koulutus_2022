@@ -27,6 +27,9 @@ public class DangerZone : MonoBehaviour
 
             GameManager.wasCautious = false;
             gameManager.PlayWarning();
+
+            gameManager.infoPanel_Panel.SetActive(false);
+            gameManager.toDoPanel.SetActive(false);
         }
 
     }
