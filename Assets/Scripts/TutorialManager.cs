@@ -114,7 +114,7 @@ public class TutorialManager : MonoBehaviour
             rightController.SetActive(true);
             teleController.SetActive(true);
 
-            infoText.text = "Press the right thumbstick forward and press the grip to teleport";
+            infoText.text = "Press the right thumbstick forward, aim floor and press the grip to teleport";
             toDoPanelScript.doneImagesList[tutStageInt].SetActive(true);
 
 
@@ -128,7 +128,7 @@ public class TutorialManager : MonoBehaviour
 
             tutMotor.GetComponent<Outline>().enabled = true;
             arrow.SetActive(true);
-            infoText.text = "Pick up the motor by pressing grip";
+            infoText.text = "Pick up the motor by taking the controller near and pressing the grip";
             toDoPanelScript.doneImagesList[tutStageInt].SetActive(true);
             tutMotor.SetActive(true);
 

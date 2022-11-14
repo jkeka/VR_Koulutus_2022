@@ -16,6 +16,17 @@ public class DangerZone : MonoBehaviour
         warningPanel.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (warningPanel.activeSelf)
+        {
+            gameManager.toDoPanel.SetActive(false);
+
+        }
+
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
 
