@@ -86,6 +86,8 @@ public class GameManager : MonoBehaviour
         winPanel.SetActive(false);
         menuScreenFeedback.SetActive(false);
 
+        toDoPanel.SetActive(true);
+
 
         audioSource = GetComponent<AudioSource>();
 
@@ -101,8 +103,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-   
 
+        infoPanel_Panel.SetActive(true);
         //Game progression
 
         if (timerOn == true)
@@ -235,7 +237,7 @@ public class GameManager : MonoBehaviour
                 stageInt = 9;
                 PlayAccomplished();
                 infoPanel_Panel.SetActive(true);
-                toDoPanel.SetActive(false);
+                toDoPanel.SetActive(true);
             }
             infoPanel.LevelEight();
         }

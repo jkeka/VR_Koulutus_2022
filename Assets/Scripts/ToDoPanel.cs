@@ -49,7 +49,7 @@ public class ToDoPanel : MonoBehaviour
         bool isActive = !gameObject.activeSelf;
         gameObject.SetActive(isActive);
 
-        infoPanel.SetActive(false);
+        //infoPanel.SetActive(false);
 
     }
     

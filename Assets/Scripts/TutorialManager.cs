@@ -44,7 +44,7 @@ public class TutorialManager : MonoBehaviour
 
     public ToDoPanel toDoPanelScript;
 
-   // public GameObject toDoPanel;
+    public GameObject toDoPanel;
     public GameObject infoPanel_Panel;
 
 
@@ -63,8 +63,8 @@ public class TutorialManager : MonoBehaviour
         tutMotorSocket.SetActive(false);
         //tutMotor.SetActive(true);
 
-        infoPanel_Panel.SetActive(true);
-
+        toDoPanel.SetActive(true);
+        
         audioSource = GetComponent<AudioSource>();
         arrow.SetActive(false);
 
@@ -80,6 +80,8 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
+        infoPanel_Panel.SetActive(true);
+
         //Debug.Log("playerStartingPosition: " + playerStartingPosition.position.ToString());
 
         if (tutStageInt == 0)

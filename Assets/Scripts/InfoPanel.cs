@@ -42,7 +42,7 @@ public class InfoPanel : MonoBehaviour
     {
         bool isActive = !gameObject.activeSelf;
         gameObject.SetActive(isActive);
-        toDoPanel.SetActive(false);
+        //toDoPanel.SetActive(false);
     }
 
     public void LevelOne()
@@ -56,14 +56,14 @@ public class InfoPanel : MonoBehaviour
     public void LevelTwo()
     {
 
-        taskText.text = "Open the cell door";
+        taskText.text = "Open the robot cell door";
         infoText.text = "";
     }
 
     public void LevelThree()
     {
-        taskText.text = "Remove the bolts of bearing cover plate with impact wrench";
-        infoText.text = "Impact wrench can be found from the table next to robot";
+        taskText.text = "Remove the bolts of bearing cover plate with the impact wrench";
+        infoText.text = "The impact wrench can be found from the table next to the robot";
     }
 
     public void LevelFour()
@@ -74,19 +74,19 @@ public class InfoPanel : MonoBehaviour
 
     public void LevelFive()
     {
-        taskText.text = "Remove the old bearing with an bearing extractor";
+        taskText.text = "Remove the old bearing with the bearing extractor";
         infoText.text = "Extractor can be found from the table next to robot";
     }
 
     public void LevelSix()
     {
-        taskText.text = "Insert new bearing in to the axle";
+        taskText.text = "Insert the new bearing on to the axle";
         infoText.text = "New bearing can be found from the table next to robot";
     }
 
     public void LevelSeven()
     {
-        taskText.text = "Insert covering plate back to it's position";
+        taskText.text = "Insert the covering plate back to it's position";
         infoText.text = "";
     }
 
