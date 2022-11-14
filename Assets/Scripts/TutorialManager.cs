@@ -193,27 +193,42 @@ public class TutorialManager : MonoBehaviour
 
     public void TutStageIntTo2()
     {
-        tutStageInt = 2;
+        if (tutStageInt == 1)
+        {
+            tutStageInt = 2;
+
+        }
     }
 
     public void TutStageIntTo3()
     {
-
+        if (tutStageInt == 2)
+        {
             tutStageInt = 3;
 
-        
+        }
+
+
 
 
     }
 
     public void TutStageIntTo4()
     {
-        tutStageInt = 4;
+        if (tutStageInt == 3)
+        {
+            tutStageInt = 4;
+
+        }
     }
 
     public void TutStageIntTo5()
     {
-        tutStageInt = 5;
+        if (tutStageInt == 4)
+        {
+            tutStageInt = 5;
+
+        }
     }
 
 
