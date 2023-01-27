@@ -3,33 +3,45 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - EmergencyButton
+  - SafetyDoor
+  - Wrench
+  - Bolt
+  - CoverRemovable
+  - DoorStopper
+  - Bearing
+  - BearingExtractor
+  - BearingBroken
+  - DangerZone
+  - CoverRemovableSocket
+  - TutWalls
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wrench
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Cover_removable
+  - Bolts
+  - Door_Above
+  - Door_Left
+  - SafetyDoor
+  - SafetyFence
+  - SafetyDoorFrame
+  - CellFloor
+  - HallFloor
+  - GameController
+  - Extractor
+  - Robot
+  - Bearing
+  - MenuScreen
+  - Arrow
+  - DangerZone
+  - TutWalls
+  - TutMotor
   - 
   - 
   - 
@@ -40,4 +52,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1617471147
     locked: 0

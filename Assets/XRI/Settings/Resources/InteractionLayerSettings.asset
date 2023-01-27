@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_LayerNames:
   - Default
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Teleport
+  - Basic Interactable
+  - MenuPanel
+  - BearingNew
+  - CoverRemovable
+  - TutorialMotor
   - 
   - 
   - 

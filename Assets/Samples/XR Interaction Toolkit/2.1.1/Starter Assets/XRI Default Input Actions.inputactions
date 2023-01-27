@@ -1395,13 +1395,49 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Toggle teleport",
+                    "type": "Button",
+                    "id": "3b8326c7-dbe6-4e65-afbd-bfa1c30caa52",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Press grab",
+                    "type": "Button",
+                    "id": "9b3c2a59-b486-4d7a-babb-fb43a888a452",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Press trigger",
+                    "type": "Button",
+                    "id": "2d0de11c-3504-42a8-b6a6-de34b2be19da",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Move L_Stick",
+                    "type": "Button",
+                    "id": "aa1c76c8-0880-4696-b9da-077279b61301",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
                     "id": "1b9648d3-f1e7-4e7a-9aeb-ee6bbcf4b386",
-                    "path": "<OculusTouchController>{RightHand}/secondaryButton",
+                    "path": "<XRController>{LeftHand}/secondaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1412,11 +1448,55 @@
                 {
                     "name": "",
                     "id": "0ebed17a-cc65-4cff-aa57-a1e055864a18",
-                    "path": "<OculusTouchController>{RightHand}/primaryButton",
+                    "path": "<XRController>{LeftHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Toggle info",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3db43b1-b88a-4d41-84fd-62484b9e15ac",
+                    "path": "<XRController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Toggle teleport",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21b6218f-87a1-41d4-87b9-f12de723b8f6",
+                    "path": "<OculusTouchController>/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press grab",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e647468e-b811-46ea-93d4-51e9886b0184",
+                    "path": "<OculusTouchController>/triggerPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press trigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "abf6847f-52bd-494f-84d8-e4c1484e9185",
+                    "path": "<XRController>{LeftHand}/primary2DAxisTouch",
+                    "interactions": "Sector(directions=-1,sweepBehavior=3)",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Move L_Stick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
