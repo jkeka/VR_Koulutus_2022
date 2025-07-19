@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-/// <summary>
 /// Handles the behavior of a broken bearing in the game.
 /// Allows interaction when the player enters a specific area
 /// and activates the bearing with an input action.
-/// </summary>
 
 public class BearingBroken : MonoBehaviour
 {
